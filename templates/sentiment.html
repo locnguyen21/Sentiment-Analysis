@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename ='signupnologin.css') }}">
+</head>
+<body>
+    <form id="msform"  method = POST>
+    <fieldset>
+    <h2 class="fs-title">Sentiment Analysis</h2>
+    <input type="text" name="sentence" placeholder="sentence" value = {{sentence}}>
+    <input type="submit" name = "submit" class="action-button" id = "idSubmit" value = "Check">
+
+    <textarea id="sentences" name="sentences" placeholder="sentences" rows="4" cols="50"></textarea>
+
+   <textarea id="svm-result" name="svm" placeholder="svm" rows="4" cols="50">{{SVM_result}}</textarea>
+        <textarea id="rnn-result" name="RNN" placeholder="rnn" rows="4" cols="50">{{RNN_Fast_result}}</textarea>
+
+         <!-- {% if status == 1%} -->
+        <!-- <th><p>Kết quả : {{result}} </p></th> -->
+        <!-- {% endif %} -->
+
+    </fieldset>
+    </form>
+</body>
+</html>

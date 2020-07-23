@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page of {{username}}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="https://s3.amazonaws.com/django-blog/ico/favicon_v2.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--    <link rel="stylesheet" type="text/css" href="{{ url_for ('static',filename ='mainpage1.css') }}">-->
+    <style>
+        fieldset
+	{
+		border: 1px solid #ddd !important;
+		margin: 0;
+		xmin-width: 0;
+		padding: 10px;
+		position: relative;
+		border-radius:4px;
+		background-color:#f5f5f5;
+		padding-left:10px!important;
+<!--		text-align: center;-->
+	}
+
+		legend
+		{
+			font-size:14px;
+			font-weight:bold;
+			margin-bottom: 0px;
+			width: 55%;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			padding: 5px 5px 5px 10px;
+			background-color: #ffffff;
+			position: relative;
+		}
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    <form id="comment_form" method = "POST">
+<!--    <form id="msform"  method = GET>-->
+        <div class="panel panel-default">
+    <fieldset class = "fs-fs">
+        <div>
+            <h2 class="fs-title">Các bài viểt của {{username}}</h2></div>
+    <div id="target" class="panel-body">
+            <div id="board">
+                <div id = "button" class="panel-body">
+                <input type="submit" name= "action" class="btn btn-info" id = "create" value = "Tạo bài viết mới">
+                <input type="submit" name= "action" class="btn btn-info" id = "logout" value = "Đăng xuất">
+                </div>
+                <div id = "board1">
+                <script type="text/javascript">
+                 var username = '{{username | safe}}';
+                 var userpost = {{userposts | safe }};
+                 var titleposts = {{titleposts | safe }};
+                 var contents = {{contents | safe }};
+                 var comments = {{comments | safe }};
+                 for(x=0; x < {{lenposts}}; x++) {
+                        var fs = document.createElement('div');
+                        fs.className = "d1";
+                        fs.id = x;
+                        document.getElementById('board1').appendChild(fs)
+
+                        var fs1 = document.createElement('div');
+                        fs1.className = "lg";
+<!--                        fs1.innerHTML = titleposts[x];-->
+                        fs1.style.height = "100px";
+<!--                        fs1.style.width = "100%";-->
+                        fs1.style.backgroundColor = "#FFFAF0"
+                        fs1.style.margin = "10px 0px 10px 0px";
+                        fs1.style.padding = "20px 20px 10px 20px";
+                        fs1.style.position = "relative";
+                        document.getElementById(x).appendChild(fs1);
+
+                        var link = "http://127.0.0.1:9999/" + username + "/post/" + userpost[x];
+                        var fs = document.createElement('div');
+                        fs.className = "fs";
+<!--                        fs.innerHTML = titleposts[x];-->
+                        fs.id = x;
+                        fs1.appendChild(fs);
+
+
+                        var lg = document.createElement('legend');
+                        lg.className = "lg";
+                        lg.innerHTML = titleposts[x];
+                        fs.appendChild(lg);
+
+                        var pre = document.createElement('pre');
+                        pre.className = "pre";
+<!--                        pre.innerHTML = contents[x];-->
+                        fs.appendChild(pre);
+
+                        var a = document.createElement('a');
+                        a.className = "a1";
+                        pre.appendChild(a);
+                        a.innerHTML = "chi tiết bài viết";
+                        a.href = link;
+
+<!--                    var fschild = document.createElement('fieldset');-->
+<!--                    fschild.className = "fs2child";-->
+<!--                    fschild.id = x;-->
+<!--                    document.getElementById(x).appendChild(fschild);-->
+
+<!--                    var lg2 = document.createElement('legend');-->
+<!--                    lg2.className = "lg2";-->
+<!--                    lg2.innerHTML = "Bình luận"-->
+<!--                    fschild.appendChild(lg2);-->
+
+<!--                    var precom = document.createElement('pre');-->
+<!--                    precom.className = "pre";-->
+<!--                    precom.innerHTML = comments[x];-->
+<!--                    fschild.appendChild(precom);-->
+
+
+<!--                    board.style.backgroundColor = "red";-->
+
+                    ;}
+                </script>
+            </div>
+            </div>
+
+   <!-- all divs will append here -->
+    </div>
+             <!-- {% if status == 1%} -->
+        <!-- <th><p>Kết quả : {{result}} </p></th> -->
+        <!-- {% endif %} -->
+    </fieldset>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
+<!--<script type="text/javascript">-->
+<!--                    for(x=0; x<9; x++) {-->
+<!--                    var pound = document.createElement('p');-->
+<!--                    pound.className = "conttent";-->
+<!--                    pound.innerHTML = "Paragraph changed!";-->
+<!--                    document.getElementById("postconttent").appendChild(pound);-->
+<!--                    }-->
+<!--                </script>-->
+<!--<a href="forum_post.html" class="forum-item-title">General Discussion</a>-->
+<!--                            <div class="forum-sub-title">Talk about sports, entertainment, music, movies, your favorite color, talk about enything.</div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-1 forum-info">-->
+<!--                            <span class="views-number">-->
+<!--                                1216-->
+<!--                            </span>-->
