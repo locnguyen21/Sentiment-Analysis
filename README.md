@@ -5,4 +5,4 @@ Using Machine learning to build sentiment analysis model, including:
 3. LSTM-Fasttext
 </pre>
 
-After that, using Flask framework to create Web service using trained model below
+After that, using Flask framework to create Web service using trained model above
